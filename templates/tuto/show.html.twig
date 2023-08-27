@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tuto{% endblock %}
+
+{% block body %}
+    <h1>Tuto</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tuto.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ tuto.Title }}</td>
+            </tr>
+            <tr>
+                <th>Categories</th>
+                <td>{{ tuto.Categories ? tuto.Categories|join(', ') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ tuto.image }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_home') }}">Retourner à la liste des tutos</a>
+
+    {# Afficher les boutons "edit" et "delete" seulement si l'utilisateur est un admin #}
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('app_tuto_edit', {'id': tuto.id}) }}">edit</a>
+        {{ include('tuto/_delete_form.html.twig') }}
+    {% endif %}
+{% endblock %}

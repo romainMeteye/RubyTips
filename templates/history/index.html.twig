@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Historique{% endblock %}
+
+{% block body %}
+    <h1>Historique des tutoriels consultés</h1>
+
+    {% if tutos is empty %}
+        <p>Aucun tutoriel consulté.</p>
+    {% else %}
+        <ul>
+            {% for tuto in tutos %}
+                <li>
+                    <a href="{{ path('app_tuto_show', {'id': tuto.id}) }}">
+                        {{ tuto.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

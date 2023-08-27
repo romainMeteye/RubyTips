@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Profil de {{ user.email }}</h1>
+
+    <ul>
+        <li>Email : {{ user.email }}</li>
+    </ul>
+
+    <form method="post" action="{{ path('app_profile_delete') }}">
+        <input type="hidden" name="token" value="{{ csrf_token('delete-account') }}">
+        <button type="submit">Supprimer mon compte</button>
+    </form>
+
+    <a href="{{ path('app_logout') }}">Déconnexion</a>
+{% endblock %}

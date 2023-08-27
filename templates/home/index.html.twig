@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<section class="margin-lr">
+
+<div class="introduction-section">
+    <h1 class="introduction-h1">Bienvenue sur RubyTips !</h1>
+    <h2 class="introduction-h2">Développez votre expertise en Ruby, débutant comme codeur confirmé !</h2>
+    </br>
+    <div class="content-container">
+        <div class="text-container">
+            <h3 class="introduction-h3">📚 <strong>Qu'est-ce que RubyTips ?</strong></h3>
+            <p class="introduction-p">C'est une plateforme dédiée à la maîtrise du langage de programmation Ruby. Ici, vous trouverez des tutoriels vidéo et des articles détaillés.</p>
+            <h3 class="introduction-h3">💡 <strong>Pourquoi choisir RubyTips ?</strong></h3>
+            <p class="introduction-p">Il existe de nombreuses ressources en ligne pour apprendre Ruby, mais RubyTips se démarque par la qualité de son contenu.</p>
+            <h3 class="introduction-h3">>👥 <strong>Rejoignez une communauté dynamique !</strong></h3>
+            <p class="introduction-p">Ne partez pas à l'aventure seul ! RubyTips est aussi une communauté de passionnés de Ruby.</p>
+            <h3 class="introduction-h3">>📣 <strong>Prêt à plonger dans le monde fascinant de Ruby ?</strong></h3>
+            <p class="introduction-p">Créez un compte gratuitement dès aujourd'hui pour accéder à des contenus exclusifs et commencer votre apprentissage.</p>
+            <a href="#" class="cta-button introduction-btn">👇 Naviguez en dessous et trouvez les tutos fait pour vous !</a>
+        </div>
+        <div class="image-container">
+            <img src="{{ asset('uploads/17950-1024x814.png') }}" class="right-image" alt="Description de l'image">
+        </div>
+    </div>
+</div>
+
+<h2 class="category-title">Découvrez nos meilleurs tutoriels en vidéo !</h2>
+<p class="category-subtitle">Tous les tutoriels en vidéo pour apprendre les bases de ruby sont ici.</p>
+<div class="linegradient linevideo"></div>
+<div class="row">
+    {% for tuto in tutos %}
+        {% if 'video' in tuto.categories %}
+            <div class="col-md-4">
+                <div class="tuto-card">
+                    <img src="{{ asset('uploads/' ~ tuto.image) }}" class="tuto-image" />
+                    <h2 class="tuto-title"><a href="{{ path('app_tuto_show', {'id': tuto.id}) }}" class="tuto-link">{{ tuto.title }}</a></h2>
+                    <p class="tuto-category">Tuto Vidéo</p>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<h2 class="category-title">Nos tutos écrits sont les plus complets !</h2>
+<p class="category-subtitle">Vous préférez la lecture et prendre votre temps étape par étape, nos tutos rédigés sont pour vous.</p>
+<div class="linegradient linedocs"></div>
+<div class="row">
+    {% for tuto in tutos %}
+        {% if 'docs' in tuto.categories %}
+            <div class="col-md-4">
+                <div class="tuto-card">
+                    <img src="{{ asset('uploads/' ~ tuto.image) }}" class="tuto-image" />
+                    <h2 class="tuto-title"><a href="{{ path('app_tuto_show', {'id': tuto.id}) }}" class="tuto-link">{{ tuto.title }}</a></h2>
+                    <p class="tuto-category">Tuto Écrit</p>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<h2 class="category-title">Toujours plus de tutoriels !</h2>
+<p class="category-subtitle">Les autres tutoriels sont dans cette catégorie, pour en apprendre toujours plus.</p>
+<div class="linegradient linemotion"></div>
+<div class="row">
+    {% for tuto in tutos %}
+        {% if 'motion' in tuto.categories %}
+            <div class="col-md-4">
+                <div class="tuto-card">
+                    <img src="{{ asset('uploads/' ~ tuto.image) }}" class="tuto-image" />
+                    <h2 class="tuto-title"><a href="{{ path('app_tuto_show', {'id': tuto.id}) }}" class="tuto-link">{{ tuto.title }}</a></h2>
+                    <p class="tuto-category">Tuto Motion</p>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+</section>
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const userIsConnected = {{ userIsConnected ? 'true' : 'false' }};
+        // Récupérer tous les liens de tutoriel
+        const tutoLinks = document.querySelectorAll('.tuto-link');
+
+        // Ajouter un écouteur d'événements à chaque lien
+        tutoLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                if (!userIsConnected) {
+                    event.preventDefault(); // Empêcher la navigation vers le lien
+                    alert('Veuillez vous connecter pour consulter ce tutoriel.'); // Afficher le pop-up
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}
+
+
+
+
+

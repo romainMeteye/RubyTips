@@ -1,0 +1,129 @@
+/* Background de la page */*
+* {
+    /* font-family: 'roboto', cursive; */
+}
+body, html {
+    overflow-x: hidden;
+    width: 100%;
+}
+body {
+    background-color: #000;
+}
+
+.tuto-card {
+    /* background-color: #ffffff; */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 16px;
+    padding: 16px;
+    text-align: center;
+}
+
+.tuto-image {
+    max-width: 250px;
+    /* max-height: 300px; */
+    object-fit: cover;
+    margin-bottom: 16px;
+}
+
+.tuto-title {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.tuto-category {
+    color: #a0a0a0;
+    margin-bottom: 8px;
+}
+
+
+/* Liens des titres du tutoriel */
+.tuto-link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.tuto-link:hover {
+    text-decoration: underline;
+}
+
+.category-title {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-top: 5vh;
+}
+
+.category-subtitle {
+    color: #a0a0a0;
+    font-size: 1rem;
+}
+.linegradient {
+    margin-top: 0.75rem;
+    height: 0.25rem;
+    width: 100%;
+}
+.linevideo  {
+    background-image: linear-gradient(to right, #8A0000, #FF0000);
+}
+.linedocs {
+    background-image: linear-gradient(to right,#fab818,#FF0000);
+}
+.linemotion {
+    background-image: linear-gradient(to right, #FF69B4, #FF0000);
+
+}
+.margin-lr {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+.introduction-section {
+    color: white;
+    padding: 50px 0;
+    text-align: justify;
+    background-image: url('../uploads/font.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.introduction-h1 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+.introduction-h2 {
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.introduction-h3 {
+    font-size: 1.2rem;
+    margin-left: 1vw;
+}
+
+.introduction-p {
+    font-size: 0.9rem;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+.introduction-btn {
+    color: #FF0000;
+}
+.content-container {
+    display: flex;
+    max-width: 75vw;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .image-container {
+    margin-left: 5vh;
+    max-width: 30vw;
+    height: auto;
+  }
+  .right-image {
+    width: 25vw;
+    height: auto;
+    margin-top: 5vh;
+  }
+  

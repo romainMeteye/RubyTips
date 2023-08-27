@@ -1,0 +1,40 @@
+body, html {
+    overflow-x: hidden;
+    width: 100%;
+}
+/* Style pour le titre "RubyTips" */
+.site-title {
+    font-family: 'Helvetica, Arial, sans-serif';
+    font-size: 2rem;
+    margin-left: 1vw;
+    font-weight: bold;
+    color: #cc342d;  /* Couleur ruby */
+}
+.header-top {
+    background-color: #23252b;
+}
+.navbar-nav {
+    margin-left: auto;
+}
+
+/* Pour rendre le header "sticky" */
+/* .header-top {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+} */
+.nav-item a {
+    color: #ffffff;
+}
+.nav-item a:visited {
+    color: #ffffff;
+}
+.nav-item a:hover {
+    color: #ffffff;
+}
+.nav-item a:hover {
+    text-decoration: underline; /* Par exemple, souligner le texte au survol */
+}
+.custom-dropdown-item {
+    color: #000000 !important; 
+}
