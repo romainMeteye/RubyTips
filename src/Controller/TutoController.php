@@ -38,7 +38,6 @@ public function new(Request $request, TutoRepository $tutoRepository): Response
         $imageFile = $tuto->getImageFile();
 
         if ($imageFile) {
-            $filesystem = new Filesystem();
             $imageFilename = md5(uniqid()).'.'.$imageFile->guessExtension();
 
             $imageFile->move(

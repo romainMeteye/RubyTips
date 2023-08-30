@@ -1,5 +1,8 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/tutoshow.css') }}">
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
 {% block title %}Historique{% endblock %}
 
 {% block body %}
@@ -8,10 +11,10 @@
     {% if tutos is empty %}
         <p>Aucun tutoriel consulté.</p>
     {% else %}
-        <ul>
+        <ul class="tuto-history-list">
             {% for tuto in tutos %}
-                <li>
-                    <a href="{{ path('app_tuto_show', {'id': tuto.id}) }}">
+                <li class="tuto-history-item">
+                    <a href="{{ path('app_tuto_show', {'id': tuto.id}) }}" class="tuto-history-link">
                         {{ tuto.title }}
                     </a>
                 </li>
@@ -19,3 +22,5 @@
         </ul>
     {% endif %}
 {% endblock %}
+
+

@@ -99,31 +99,34 @@ body {
 .introduction-h3 {
     font-size: 1.2rem;
     margin-left: 1vw;
+    text-align: center;
 }
 
 .introduction-p {
     font-size: 0.9rem;
     margin-left: 1vw;
     margin-right: 1vw;
+    text-align: center;
 }
 .introduction-btn {
     color: #FF0000;
 }
-.content-container {
-    display: flex;
-    max-width: 75vw;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  
-  .image-container {
-    margin-left: 5vh;
-    max-width: 30vw;
-    height: auto;
-  }
-  .right-image {
+
+  .introduction-image {
     width: 25vw;
     height: auto;
-    margin-top: 5vh;
+    margin: 20px auto;
+    display: block;
   }
+  .content-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.card {
+    /* border: 1px solid #ccc; */
+    padding: 20px;
+    margin: 15px;
+    width: calc(25% - 30px);
+}
   

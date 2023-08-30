@@ -1,0 +1,112 @@
+
+body, html {
+    overflow-x: hidden;
+    width: 100%;
+}
+body {
+    background-color: #000;
+    color: white;
+}
+.tuto-page {
+    color: white;
+    text-align: center;
+}
+
+.admin-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.admin-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.tuto-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.tuto-image-detail {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.tuto-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tuto-video {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.back-button, .validate-button {
+    background-color: #f39c12;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.validate-button {
+    display: block;
+    margin: 20px auto;
+}
+.tuto-title, .tuto-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    margin-top: 2vh;
+}
+.delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.tuto-video {
+    max-width: 100%;
+    min-width: 640px;
+    margin-bottom: 20px;
+}
+
+/* Style pour la liste de tutoriels de l'historique */
+.tuto-history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style pour chaque élément de la liste de l'historique */
+.tuto-history-item {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Style pour les liens dans la liste de l'historique */
+.tuto-history-link {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Style pour les liens survolés dans la liste de l'historique */
+.tuto-history-link:hover {
+    background-color: #555;
+}

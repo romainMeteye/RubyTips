@@ -1,36 +1,36 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Tuto{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/tutoshow.css') }}">
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+{% block title %}{{ tuto.Title }}{% endblock %}
 
 {% block body %}
-    <h1>Tuto</h1>
+    <div class="tuto-page">
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="admin-buttons">
+                <a href="{{ path('app_tuto_edit', {'id': tuto.id}) }}" class="admin-btn">Modifier</a>
+                <button type="submit" class="delete-button">Supprimer</button>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ tuto.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ tuto.Title }}</td>
-            </tr>
-            <tr>
-                <th>Categories</th>
-                <td>{{ tuto.Categories ? tuto.Categories|join(', ') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ tuto.image }}</td>
-            </tr>
-        </tbody>
-    </table>
+            </div>
+        {% endif %}
 
-    <a href="{{ path('app_home') }}">Retourner à la liste des tutos</a>
+        <h1 class="tuto-title">{{ tuto.Title }}</h1>
 
-    {# Afficher les boutons "edit" et "delete" seulement si l'utilisateur est un admin #}
-    {% if is_granted('ROLE_ADMIN') %}
-        <a href="{{ path('app_tuto_edit', {'id': tuto.id}) }}">edit</a>
-        {{ include('tuto/_delete_form.html.twig') }}
-    {% endif %}
+        <div class="tuto-detail">
+            <img src="{{ asset('uploads/' ~ tuto.image) }}" alt="{{ tuto.Title }}" class="tuto-image-detail">
+            <div class="tuto-content">
+                <h2>Description</h2>
+                <p>{{ tuto.Description }}</p>
+
+                <h2>Vidéo</h2>
+                <video controls class="tuto-video">
+                    <source src="https://youtu.be/7VFyu5nXIIg" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <button class="validate-button">Valider le tuto</button>
+        <a href="{{ path('app_home') }}" class="back-button">Retourner à la liste des tutos</a>
+        
+    </div>
 {% endblock %}

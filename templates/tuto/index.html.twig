@@ -8,10 +8,9 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Title</th>
+                <th>Titre</th>
                 <th>Categories</th>
-                <th>Image</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -19,19 +18,18 @@
             <tr>
                 <td>{{ tuto.Title }}</td>
                 <td>{{ tuto.Categories ? tuto.Categories|join(', ') : '' }}</td>
-                <td><img src="{{ asset('uploads/' ~ tuto.image) }}" width="300" height="300" /></td>
                 <td>
-                    <a href="{{ path('app_tuto_show', {'id': tuto.id}) }}">show</a>
-                    <a href="{{ path('app_tuto_edit', {'id': tuto.id}) }}">edit</a>
+                    <a href="{{ path('app_tuto_show', {'id': tuto.id}) }}">Voir</a>
+                    <a href="{{ path('app_tuto_edit', {'id': tuto.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucun tuto en ligne</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_tuto_new') }}">Create new</a>
+    <a href="{{ path('app_tuto_new') }}">Ajouter un nouveau tutoriel</a>
 {% endblock %}
